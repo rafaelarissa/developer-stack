@@ -1,9 +1,12 @@
+import { CreateAnswerData } from "./../services/answerService";
 import { Request, Response } from "express";
 import answerService from "../services/answerService.js";
-import questionService from "../services/questionService.js";
+import questionService, {
+  CreateQuestionData,
+} from "../services/questionService.js";
 
 export async function create(req: Request, res: Response) {
-  const { question } = req.body;
+  const question: CreateQuestionData = req.body;
 
   await questionService.insert(question);
 
@@ -12,9 +15,11 @@ export async function create(req: Request, res: Response) {
 
 export async function answer(req: Request, res: Response) {
   const { id } = req.params;
-  const { answer } = req.body;
+  const answer: CreateAnswerData = req.body;
 
   const answers = await answerService.insert(Number(id), answer);
+
+  res.send(answers);
 }
 
 export async function get(req: Request, res: Response) {

@@ -1,5 +1,5 @@
 import { Answer } from "@prisma/client";
-import answerRepository from "../repositories/answerRepository";
+import answerRepository from "../repositories/answerRepository.js";
 
 export type CreateAnswerData = Omit<Answer, "id">;
 async function insert(id: number, createAnswerData: CreateAnswerData) {

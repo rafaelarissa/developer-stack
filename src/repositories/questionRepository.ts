@@ -1,4 +1,4 @@
-import { prisma } from "./../config/database";
+import { prisma } from "./../config/database.js";
 import { CreateQuestionData } from "../services/questionService.js";
 
 async function findAll() {

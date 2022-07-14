@@ -14,8 +14,8 @@ model Question {
   id       Int    @id @default(autoincrement())
   question String
 
-  @@map("questions")
   Answer Answer[]
+  @@map("questions")
 }
 
 model Answer {

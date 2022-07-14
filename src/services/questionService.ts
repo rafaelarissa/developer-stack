@@ -1,5 +1,5 @@
 import { Question } from "@prisma/client";
-import questionRepository from "../repositories/questionRepository";
+import questionRepository from "../repositories/questionRepository.js";
 
 async function findAll() {
   const questions = await questionRepository.findAll();
