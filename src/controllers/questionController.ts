@@ -11,7 +11,10 @@ export async function create(req: Request, res: Response) {
 }
 
 export async function answer(req: Request, res: Response) {
-  // TODO
+  const { id } = req.params;
+  const { answer } = req.body;
+
+  const answers = await answerService.insert(Number(id), answer);
 }
 
 export async function get(req: Request, res: Response) {
@@ -21,9 +24,9 @@ export async function get(req: Request, res: Response) {
 }
 
 export async function getById(req: Request, res: Response) {
-  const { id } = req.body;
+  const { id } = req.params;
 
-  const questions = await questionService.findById(id);
+  const questions = await questionService.findById(Number(id));
 
   res.send(questions);
 }

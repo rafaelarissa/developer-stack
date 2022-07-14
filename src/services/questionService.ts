@@ -7,7 +7,8 @@ async function findAll() {
 }
 
 async function findById(questionId: number) {
-  await questionRepository.findById(questionId);
+  const questions = await questionRepository.findById(questionId);
+  return questions;
 }
 
 export type CreateQuestionData = Omit<Question, "id">;
