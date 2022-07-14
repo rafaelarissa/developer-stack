@@ -6,6 +6,11 @@ async function findAll() {
   return questions;
 }
 
+async function findById(id: number) {
+  const questions = await prisma.question.findMany({ where: { id: id } });
+  return questions;
+}
+
 async function insert(createQuestionData: CreateQuestionData) {
   await prisma.question.create({
     data: {
@@ -16,5 +21,6 @@ async function insert(createQuestionData: CreateQuestionData) {
 
 export default {
   findAll,
+  findById,
   insert,
 };

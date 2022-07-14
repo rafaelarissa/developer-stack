@@ -6,10 +6,14 @@ async function findAll() {
   return questions;
 }
 
+async function findById(questionId: number) {
+  await questionRepository.findById(questionId);
+}
+
 export type CreateQuestionData = Omit<Question, "id">;
 async function insert(createQuestionData: CreateQuestionData) {
   await questionRepository.insert(createQuestionData);
 }
 
-const questionService = { findAll, insert };
+const questionService = { findAll, findById, insert };
 export default questionService;

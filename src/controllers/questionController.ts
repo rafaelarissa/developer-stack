@@ -21,5 +21,9 @@ export async function get(req: Request, res: Response) {
 }
 
 export async function getById(req: Request, res: Response) {
-  // TODO
+  const { id } = req.body;
+
+  const questions = await questionService.findById(id);
+
+  res.send(questions);
 }
